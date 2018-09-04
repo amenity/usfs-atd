@@ -1,8 +1,8 @@
 import Introduction from '../components/Introduction.jsx';
 
 const formConfig = {
-  title: 'Form',
-  subTitle: 'Test',
+  title: 'Apply for a Residential Parking Permit',
+  //subTitle: 'This is a test.',
   formId: '',
   urlPrefix: '/',
   trackingPrefix: 'form-',
@@ -13,10 +13,10 @@ const formConfig = {
   defaultDefinitions: {},
   chapters: {
     firstChapter: {
-      title: 'First Chapter',
+      title: 'Contact Information',
       pages: {
         firstPage: {
-          path: 'first-chapter/first-page',
+          path: 'contact/first-page',
           title: 'First Page',
           uiSchema: {},
           schema: {
