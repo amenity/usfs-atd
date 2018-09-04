@@ -14,11 +14,11 @@ const formConfig = {
   defaultDefinitions: {},
   chapters: {
     firstChapter: {
-      title: 'Contact Information',
+      title: 'Contact information',
       pages: {
-        firstPage: {
-          path: 'contact/contact',
-          title: 'Contact Information',
+        page1: {
+          path: 'contact-information',
+          title: 'Contact information',
           schema: {
             type: 'object',
             properties: {
@@ -108,9 +108,84 @@ const formConfig = {
       }
     },
     secondChapter: {
-      title: 'Second Chapter',
+      title: 'Proof of residency',
       pages: {
-
+        page2: {
+          path: 'proof-of-residency',
+          title: 'Proof of residency',
+          schema: {
+            type: 'object',
+            properties: {
+              proofOptions: {
+                type: 'string',
+                enum: ['license', 'lease', 'bill', 'accountNumber']
+              },
+              licenseUpload: {
+                type: 'string'
+              },
+              leaseUpload: {
+                type: 'string'
+              },
+              billUpload: {
+                type: 'string'
+              },
+              accountNumberEntry: {
+                type: 'string',
+                pattern: '^[0-9]{10}$'
+              }
+            }
+          },
+          uiSchema: {
+            proofOptions: {
+              'ui:title': 'Which options would you like to submit for your proof of residency?',
+              'ui:widget': 'radio',
+              'ui:options': {
+                labels: {
+                  license: 'your driver\'s license or identification card', 
+                  lease: 'your current lease or mortgage agreement', 
+                  bill: 'your utility bill issued within the last 30 days',
+                  accountNumber: 'your utility bill account number'
+                }
+              }
+            },
+            //TODO: Make the ___Upload fields appear under the selected option — maybe? (There might be a simpler pattern UX pattern...)
+            licenseUpload: {
+              'ui:title': 'Upload an image of your driver\'s license or identification card.',
+              'ui:description': '(There is currently no file upload capability in USFS, see https://github.com/usds/us-forms-system/issues/52)',
+              'ui:options': {
+                expandUnder: 'proofOptions',
+                expandUnderCondition: 'license'
+              }
+            },
+            leaseUpload: {
+              'ui:title': 'Upload an image of your current lease or mortgage agreement.',
+              'ui:description': '(There is currently no file upload capability in USFS, see https://github.com/usds/us-forms-system/issues/52)',
+              'ui:options': {
+                expandUnder: 'proofOptions',
+                expandUnderCondition: 'lease'
+              }
+            },
+            billUpload: {
+              'ui:title': 'Upload an image of a utility bill issued to you in the last 30 days.',
+              'ui:description': '(There is currently no file upload capability in USFS, see https://github.com/usds/us-forms-system/issues/52)',
+              'ui:options': {
+                expandUnder: 'proofOptions',
+                expandUnderCondition: 'bill'
+              }
+            },
+            accountNumberEntry: {
+              'ui:title': 'Enter your City of Austin Utilities account number.',
+              'ui:description': 'Your account number may be found on the upper righthand corner of your utility bill.',
+              'ui:options': {
+                expandUnder: 'proofOptions',
+                expandUnderCondition: 'accountNumber'
+              },
+              'ui:errorMessages': {
+                'pattern': 'Please enter a valid 10 digit number.'
+              }
+            }
+          },
+        },
       }
     }
   }
