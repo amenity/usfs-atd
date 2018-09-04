@@ -1,7 +1,7 @@
 {
-  "name": "us-forms-system-starter-app",
+  "name": "usfs-atd",
   "version": "1.0.0",
-  "description": "Test US Forms System",
+  "description": "Test US Forms System for ATD Residential Parking Permit",
   "main": "index.js",
   "directories": {},
   "scripts": {
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/usds/us-forms-system-starter-app.git"
+    "url": "git+https://github.com/amenity/us-forms-test.git"
   },
   "author": "",
   "license": "ISC",
