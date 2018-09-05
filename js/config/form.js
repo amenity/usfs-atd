@@ -120,14 +120,18 @@ const formConfig = {
                 type: 'string',
                 enum: ['license', 'lease', 'bill', 'accountNumber']
               },
+              // There is currently no file upload capability in USFS, see https://github.com/usds/us-forms-system/issues/52, so this is Mozilla RJSF implmentation via https://github.com/mozilla-services/react-jsonschema-form#file-widgets
               licenseUpload: {
-                type: 'string'
+                type: 'string',
+                format: 'data-url',
               },
               leaseUpload: {
-                type: 'string'
+                type: 'string',
+                format: 'data-url',
               },
               billUpload: {
-                type: 'string'
+                type: 'string',
+                format: 'data-url',
               },
               accountNumberEntry: {
                 type: 'string',
@@ -151,7 +155,6 @@ const formConfig = {
             //TODO: Make the ___Upload fields appear under the selected option — maybe? (There might be a simpler pattern UX pattern...)
             licenseUpload: {
               'ui:title': 'Upload an image of your driver\'s license or identification card.',
-              'ui:description': '(There is currently no file upload capability in USFS, see https://github.com/usds/us-forms-system/issues/52)',
               'ui:options': {
                 expandUnder: 'proofOptions',
                 expandUnderCondition: 'license'
@@ -159,7 +162,6 @@ const formConfig = {
             },
             leaseUpload: {
               'ui:title': 'Upload an image of your current lease or mortgage agreement.',
-              'ui:description': '(There is currently no file upload capability in USFS, see https://github.com/usds/us-forms-system/issues/52)',
               'ui:options': {
                 expandUnder: 'proofOptions',
                 expandUnderCondition: 'lease'
@@ -167,7 +169,6 @@ const formConfig = {
             },
             billUpload: {
               'ui:title': 'Upload an image of a utility bill issued to you in the last 30 days.',
-              'ui:description': '(There is currently no file upload capability in USFS, see https://github.com/usds/us-forms-system/issues/52)',
               'ui:options': {
                 expandUnder: 'proofOptions',
                 expandUnderCondition: 'bill'
