@@ -120,7 +120,6 @@ const formConfig = {
                 type: 'string',
                 enum: ['license', 'lease', 'bill', 'accountNumber']
               },
-              // There is currently no file upload capability in USFS, see https://github.com/usds/us-forms-system/issues/52, so this is Mozilla RJSF implmentation via https://github.com/mozilla-services/react-jsonschema-form#file-widgets
               licenseUpload: {
                 type: 'string',
                 format: 'data-url',
@@ -152,7 +151,7 @@ const formConfig = {
                 }
               }
             },
-            //TODO: Make the ___Upload fields appear under the selected option — maybe? (There might be a simpler pattern UX pattern...)
+            //TODO: Make the upload fields appear under the selected option — maybe? (There might be a simpler UX pattern...)
             licenseUpload: {
               'ui:title': 'Upload an image of your driver\'s license or identification card.',
               'ui:options': {
