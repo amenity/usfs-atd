@@ -3,7 +3,6 @@ import { phoneConfig } from 'us-forms-system/lib/js/definitions/phone';
 
 const formConfig = {
   title: 'Apply for a Residential Parking Permit',
-  //subTitle: 'This is a test.',
   formId: '',
   urlPrefix: '/',
   trackingPrefix: 'form-',
@@ -36,8 +35,6 @@ const formConfig = {
                 type: 'string',
                 format: 'email'
               },
-              // TODO: Figure out why the phone definition is breaking stuff; see https://github.com/usds/us-forms-system/blob/44bf861a0fe641f7d566c70cffb5d3ffd44ba9af/docs/building-a-form/common-definitions.md#phone
-              //phone: phoneConfig.schema(), 
               phone: {
                 type: 'string',
                 minLength: '10'
@@ -71,7 +68,6 @@ const formConfig = {
             email: {
               'ui:title': 'Email address'
             },
-           // phone: phoneConfig.uiSchema('Phone number'),
             phone: {
               'ui:title': 'Phone number',
               'ui:description': 'Enter a 10 digit phone number',
